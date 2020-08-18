@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1_TypyGeneryczne
 {
-    class KolejkaKolowa
+    public class KolejkaKolowa
     {
 
         private double[] bufor;

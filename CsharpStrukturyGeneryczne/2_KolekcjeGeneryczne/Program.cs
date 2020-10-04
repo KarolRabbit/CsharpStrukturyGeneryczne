@@ -21,9 +21,21 @@ namespace _2_KolekcjeGeneryczne
                 Console.WriteLine(item.Imie + " ma " + item.Wzrost + " wzrostu.");
                 
             }
-            kolejka.Enqueue(new Pracownik() { Imie = "Ola", Nazwisko = "Pepko", Wiek = 13, Wzrost = 148 });
-            int dlKol = kolejka.Count;
-            Console.WriteLine(dlKol.ToString());
+
+            Console.WriteLine("");
+
+            Stack<Pracownik> stos = new Stack<Pracownik>();
+            stos.Push(new Pracownik() { Imie = "Karol", Nazwisko = "Króliczek", Wiek = 30, Wzrost = 188 });
+            stos.Push(new Pracownik() { Imie = "Maciej", Nazwisko = "Zygmunt", Wiek = 30, Wzrost = 183 });
+            stos.Push(new Pracownik() { Imie = "Olaf", Nazwisko = "Pepito", Wiek = 23, Wzrost = 178 });
+
+            while (stos.Count > 0)
+            {
+                var item = stos.Pop();
+                Console.WriteLine(item.Imie + " ma " + item.Wzrost + " wzrostu.");
+
+            }
+
             Console.ReadLine();
         }
     }

@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kolejka.cs" />
     <Compile Include="KolejkaKolowaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\1_TypyGeneryczne\1_TypyGeneryczne.csproj">
       <Project>{47d104c2-c4a7-4fd5-a1b5-d970b51d93bb}</Project>
       <Name>1_TypyGeneryczne</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\2_KolekcjeGeneryczne\2_KolekcjeGeneryczne.csproj">
+      <Project>{c34189ca-e917-4856-b3ed-25805482894d}</Project>
+      <Name>2_KolekcjeGeneryczne</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

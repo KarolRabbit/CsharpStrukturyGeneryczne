@@ -6,10 +6,74 @@ using System.Threading.Tasks;
 
 namespace _1_TypyGeneryczne
 {
-    public class KolejkaKolowa
+    public class KolejkaKolowa<T>
     {
+        //private int head;
+        //private int tail;
+        //private bool buffFull;
+        //private bool buffEmpty;
 
-        private double[] bufor;
+
+        //string[] buffer;
+
+
+        //public KolejkaKolowa(int length)
+        //{
+        //    buffer = new string[length];
+        //    head = 0;
+        //    tail = 0;
+        //}
+
+        //public void AddItem(string item)
+        //{
+        //    buffer[head] = item;
+        //    head++;
+        //    head = (head == (buffer.Length)) ? 0 : head;
+        //    tail = (head == tail) ? tail++ : tail;
+        //    tail = (head == (buffer.Length)) ? 0 : tail;
+        //}
+
+        //public string SubItem()
+        //{
+        //    string item = buffer[tail];
+
+        //    if (tail != head)
+        //    {
+        //        tail++;
+        //        tail = (tail == buffer.Length) ? 0 : tail;
+        //    }
+        //    else
+        //    {
+        //        item = null;
+        //    }
+        //    return item;
+        //}
+
+        //public bool BuffFull
+        //{
+        //    get
+        //    {
+        //        if (((head + 1) == tail) || ((head == (buffer.Length - 1)) && (tail == 0)))
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //}
+
+        //public bool BuffEmpty
+        //{
+        //    get
+        //    {
+        //        return (tail == head) ? true : false;
+        //    }
+
+        //}
+
+        private T[] bufor;
         private int poczatekBufora;
         private int koniecBufora;
 
@@ -20,12 +84,12 @@ namespace _1_TypyGeneryczne
 
         public KolejkaKolowa(int pojemnosc)
         {
-            bufor = new double[pojemnosc+1];
+            bufor = new T[pojemnosc + 1];
             poczatekBufora = 0;
             koniecBufora = 0;
         }
 
-        public void Zapisz(double wartosc)
+        public void Zapisz(T wartosc)
         {
             bufor[koniecBufora] = wartosc;
             koniecBufora = (koniecBufora + 1) % bufor.Length;
@@ -36,7 +100,7 @@ namespace _1_TypyGeneryczne
             }
         }
 
-        public double Czytaj()
+        public T Czytaj()
         {
             var wynik = bufor[poczatekBufora];
             poczatekBufora = (poczatekBufora + 1) % bufor.Length;

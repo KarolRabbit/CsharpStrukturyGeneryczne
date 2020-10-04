@@ -10,14 +10,14 @@ namespace UnitTestTypyGeneryczne
         [TestMethod]
         public void NowaKolejkaJestPusta()
         {
-            var kolejka = new KolejkaKolowa(3);
+            var kolejka = new KolejkaKolowa<double>(3);
             Assert.IsTrue(kolejka.JestPusty);
         }
 
         [TestMethod]
         public void KolejkaTrzyelementowaJestPelnaPoTrzechZapisach()
         {
-            var kolejka = new KolejkaKolowa(3);
+            var kolejka = new KolejkaKolowa<double>(3);
             kolejka.Zapisz(3.3);
             kolejka.Zapisz(2);
             kolejka.Zapisz(0.2);
@@ -28,7 +28,7 @@ namespace UnitTestTypyGeneryczne
         [TestMethod]
         public void PierwszyWchodziPierwszyWychodzi()
         {
-            var kolejka = new KolejkaKolowa(3);
+            var kolejka = new KolejkaKolowa<double>(3);
             var wartosc1 = 3.3;
             var wartosc2 = 2;
             kolejka.Zapisz(wartosc1);
@@ -45,7 +45,7 @@ namespace UnitTestTypyGeneryczne
         [TestMethod]
         public void NadpisujeGdyJestWiekszeNizPojemnosc()
         {
-            var kolejka = new KolejkaKolowa(3);
+            var kolejka = new KolejkaKolowa<double>(3);
             var wartosci = new[] { 3.3, 4.7, 5, 1, 0.1, 66 };
 
             foreach (var wartosc in wartosci)

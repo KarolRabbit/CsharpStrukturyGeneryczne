@@ -53,6 +53,7 @@
     <Compile Include="Kolejka.cs" />
     <Compile Include="KolejkaKolowaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

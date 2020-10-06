@@ -13,8 +13,43 @@ namespace _2_KolekcjeGeneryczne
             SprawdzenieKolejki();
             SprawdzenieStosu();
             SprawdzenieHashSetu();
+            SprawdzenieLinkedListy();
 
             Console.ReadLine();
+        }
+
+        private static void SprawdzenieLinkedListy()
+        {
+            LinkedList<int> linList = new LinkedList<int>();
+
+            Console.WriteLine("Dodajemy elementy listy");
+            linList.AddFirst(2);
+            linList.AddLast(4);
+            linList.AddLast(8);
+            foreach (var item in linList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nDodajemy liczbę 100 po 2 oraz 200 przed 8");
+            var pierwsza = linList.First;
+            var ostatnia = linList.Last;
+            linList.AddAfter(pierwsza, 100);
+            linList.AddBefore(ostatnia, 200);
+            foreach (var item in linList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("\nDodajemy na początek 13 oraz 26 i wyświetlamy całą listę");
+            linList.AddFirst(26);
+            linList.AddFirst(13);
+            var wezel = linList.First;
+            while (wezel != null)
+            {
+                Console.WriteLine(wezel.Value);
+                wezel = wezel.Next;
+            }
         }
 
         private static void SprawdzenieHashSetu()

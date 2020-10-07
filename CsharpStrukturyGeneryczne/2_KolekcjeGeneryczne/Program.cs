@@ -20,7 +20,7 @@ namespace _2_KolekcjeGeneryczne
             SprawdzenieLinkedListy();
             //SprawdzenieDictionary();  Usunąłem niechcący
             SprawdzenieSortedDictionary();
-
+    
             Console.ReadLine();
         }
 

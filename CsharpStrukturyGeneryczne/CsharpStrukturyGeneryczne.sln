@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_KolekcjeGeneryczne", "2_K
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestTypyGeneryczne", "UnitTestTypyGeneryczne\UnitTestTypyGeneryczne.csproj", "{AEF1D463-4EAE-4B11-AF00-351B5049F423}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_KlasyIInterfejsyGeneryczne", "3_KlasyIInterfejsyGeneryczne\3_KlasyIInterfejsyGeneryczne.csproj", "{8DD6167B-C34E-45FA-AF6D-CDCAC93325AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AEF1D463-4EAE-4B11-AF00-351B5049F423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEF1D463-4EAE-4B11-AF00-351B5049F423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEF1D463-4EAE-4B11-AF00-351B5049F423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD6167B-C34E-45FA-AF6D-CDCAC93325AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD6167B-C34E-45FA-AF6D-CDCAC93325AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD6167B-C34E-45FA-AF6D-CDCAC93325AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD6167B-C34E-45FA-AF6D-CDCAC93325AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

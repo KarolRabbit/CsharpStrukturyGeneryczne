@@ -12,5 +12,6 @@ namespace _2_KolekcjeGeneryczne
         public string Nazwisko { get; set; }
         public int Wiek { get; set; }
         public int Wzrost { get; set; }
+        public int Pensja { get; set; }
     }
 }

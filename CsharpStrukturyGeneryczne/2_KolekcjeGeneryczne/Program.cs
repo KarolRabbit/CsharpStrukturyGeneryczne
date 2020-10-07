@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,100 @@ namespace _2_KolekcjeGeneryczne
 {
     class Program
     {
+        enum Section { bookkeeping, electricians, miners, mechanics, management, director };
+
         static void Main(string[] args)
         {
-            SprawdzenieKolejki();
-            SprawdzenieStosu();
-            SprawdzenieHashSetu();
-            SprawdzenieLinkedListy();
+            //SprawdzenieKolejki();
+            //SprawdzenieStosu();
+            //SprawdzenieHashSetu();
+            //SprawdzenieLinkedListy();
+            //SprawdzenieDictionary();
 
             Console.ReadLine();
+        }
+
+        private static void SprawdzenieDictionary()
+        {
+            Dictionary<Section, List<Pracownik>> mineWorkers = new Dictionary<Section, List<Pracownik>>();
+
+            mineWorkers.Add(Section.bookkeeping, new List<Pracownik> {new Pracownik { Nazwisko = "Kulińska", Imie = "Anna", Wiek = 28, Pensja = 3200 },
+                                                                      new Pracownik { Nazwisko = "Bagieta", Imie = "Magdalena", Wiek = 38, Pensja = 3700 },
+                                                                      new Pracownik { Nazwisko = "Wymyk", Imie = "Michalina", Wiek = 41, Pensja = 3800 },});
+
+            mineWorkers.Add(Section.electricians, new List<Pracownik> {new Pracownik { Nazwisko = "Woźniak", Imie = "Kamil", Wiek = 21, Pensja = 3100 },
+                                                                       new Pracownik { Nazwisko = "Bobrek", Imie = "Michał", Wiek = 38, Pensja = 4700 },
+                                                                       new Pracownik { Nazwisko = "Jurmyk", Imie = "Andrzej", Wiek = 31, Pensja = 3800},
+                                                                       new Pracownik { Nazwisko = "Kozak", Imie = "Jan", Wiek = 27, Pensja = 4100 }});
+
+            mineWorkers.Add(Section.miners, new List<Pracownik> {new Pracownik { Nazwisko = "Janiak", Imie = "Kamil", Wiek = 21, Pensja = 3400 },
+                                                                 new Pracownik { Nazwisko = "Boban", Imie = "Czesław", Wiek = 38, Pensja = 4700 },
+                                                                 new Pracownik { Nazwisko = "Domagała", Imie = "Rafał", Wiek = 21, Pensja = 3800},
+                                                                 new Pracownik { Nazwisko = "Kozak", Imie = "Jan", Wiek = 27, Pensja = 4300 },
+                                                                 new Pracownik { Nazwisko = "Dalko", Imie = "Anatol", Wiek = 22, Pensja = 3400 },
+                                                                 new Pracownik { Nazwisko = "Miłowow", Imie = "Andrzej", Wiek = 48, Pensja = 5100 }});
+
+            mineWorkers.Add(Section.mechanics, new List<Pracownik> {new Pracownik { Nazwisko = "Wojtak", Imie = "Kamil", Wiek = 25, Pensja = 3200 },
+                                                                    new Pracownik { Nazwisko = "Bjorek", Imie = "Michał", Wiek = 31, Pensja = 4700 },
+                                                                    new Pracownik { Nazwisko = "Myk", Imie = "Andrzej", Wiek = 31, Pensja = 3800},
+                                                                    new Pracownik { Nazwisko = "Wojtak", Imie = "Jan", Wiek = 41, Pensja = 4800 }});
+
+            mineWorkers.Add(Section.management, new List<Pracownik> {new Pracownik { Nazwisko = "Buda", Imie = "Anna", Wiek = 42, Pensja = 7200 },
+                                                                     new Pracownik { Nazwisko = "Misiek", Imie = "Sławomir", Wiek = 48, Pensja = 7700 },
+                                                                     new Pracownik { Nazwisko = "Łybyk", Imie = "Michał", Wiek = 51, Pensja = 7800 },});
+
+            mineWorkers.Add(Section.director, new List<Pracownik> { new Pracownik { Nazwisko = "Króliczek", Imie = "Karol", Wiek = 30, Pensja = 10200 } });
+
+            string readEmp = "";
+
+            do
+            {
+                readEmp = Console.ReadLine();
+                AddEmployee(ref mineWorkers, Section.miners, readEmp);
+            }
+            while (readEmp != "pracownicy");
+
+            foreach (var workersSec in mineWorkers)
+            {
+                Console.WriteLine("Position: " + workersSec.Key);
+                foreach (var worker in workersSec.Value)
+                {
+                    Console.WriteLine("{0}: {1}: {2} zł", worker.Nazwisko, worker.Imie, worker.Pensja);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static void AddEmployee(ref Dictionary<Section, List<Pracownik>> dic, Section sec, string readEmp)
+        {
+
+            string[] employeeData;
+            string name = "";
+            string secName = "";
+            int age = 0;
+            int wage = 0;
+
+            employeeData = readEmp.Split(';');
+            if (employeeData.Length == 4)
+            {
+                name = employeeData[0];
+                secName = employeeData[1];
+                if (Int32.TryParse(employeeData[2], out int result1))
+                {
+                    age = result1;
+                }
+                else { return; }
+
+                if (Int32.TryParse(employeeData[3], out int result2))
+                {
+                    wage = result2;
+                }
+                else { return; }
+
+                dic[sec].Add(new Pracownik { Imie = name, Nazwisko = secName, Wiek = age, Pensja = wage });
+            }
+            else return;
+
         }
 
         private static void SprawdzenieLinkedListy()
@@ -51,7 +138,6 @@ namespace _2_KolekcjeGeneryczne
                 wezel = wezel.Next;
             }
         }
-
         private static void SprawdzenieHashSetu()
         {
             HashSet<int> liczbyHashSet = new HashSet<int>();
@@ -86,7 +172,6 @@ namespace _2_KolekcjeGeneryczne
             }
             Console.WriteLine("");
         }
-
         private static void SprawdzenieStosu()
         {
             Stack<Pracownik> stos = new Stack<Pracownik>();
@@ -102,7 +187,6 @@ namespace _2_KolekcjeGeneryczne
             }
             Console.WriteLine("");
         }
-
         private static void SprawdzenieKolejki()
         {
             Queue<Pracownik> kolejka = new Queue<Pracownik>();

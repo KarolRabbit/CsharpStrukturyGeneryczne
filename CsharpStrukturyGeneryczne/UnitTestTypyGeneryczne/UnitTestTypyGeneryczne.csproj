@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Doctionary.cs" />
     <Compile Include="HashSet.cs" />
     <Compile Include="Kolejka.cs" />
     <Compile Include="KolejkaKolowaTest.cs" />

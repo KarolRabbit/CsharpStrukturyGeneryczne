@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace _3_KlasyIInterfejsyGeneryczne
 {
@@ -30,5 +31,19 @@ namespace _3_KlasyIInterfejsyGeneryczne
         {
             kolejka.Enqueue(wartosc);
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (var item in kolejka)
+            {
+                yield return item;
+            }
+        }
+
     }
 }

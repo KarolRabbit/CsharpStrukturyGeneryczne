@@ -46,6 +46,8 @@
     <Compile Include="DuzaKolejka.cs" />
     <Compile Include="IKolejka.cs" />
     <Compile Include="KolejkaKolowa.cs" />
+    <Compile Include="Pracownik.cs" />
+    <Compile Include="PracownikComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

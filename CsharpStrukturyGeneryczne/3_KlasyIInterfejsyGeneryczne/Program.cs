@@ -18,17 +18,16 @@ namespace _3_KlasyIInterfejsyGeneryczne
             //PrzetwarzanieDanych(kolejka);
             //Console.ReadLine();
 
-            SortedDictionary<string, SortedSet<Pracownik>> pracownicy = new SortedDictionary<string, SortedSet<Pracownik>>();
+            DzialyKolekcja pracownicy = new DzialyKolekcja();
 
-            pracownicy.Add("Księgowość", new SortedSet<Pracownik>(new PracownikComparer()));
-            pracownicy["Księgowość"].Add(new Pracownik { Imie = "Jan", Nazwisko = "Kopernik", Pensja = 3800 });
-            pracownicy["Księgowość"].Add(new Pracownik { Imie = "Anna", Nazwisko = "Domagała", Pensja = 4800 });
+            pracownicy.Add("Księgowość",new Pracownik { Imie = "Jan", Nazwisko = "Kopernik", Pensja = 3800 })
+                      .Add("Księgowość",new Pracownik { Imie = "Anna", Nazwisko = "Domagała", Pensja = 4800 });
 
-            pracownicy.Add("Informatyka", new SortedSet<Pracownik>(new PracownikComparer()));
-            pracownicy["Informatyka"].Add(new Pracownik { Imie = "Jonasz", Nazwisko = "Zwała", Pensja = 3900 });
-            pracownicy["Informatyka"].Add(new Pracownik { Imie = "Błażej", Nazwisko = "Fopernik", Pensja = 5800 });
-            pracownicy["Informatyka"].Add(new Pracownik { Imie = "Anna", Nazwisko = "Cała", Pensja = 4100 });
-            pracownicy["Informatyka"].Add(new Pracownik { Imie = "Justyna", Nazwisko = "Cała", Pensja = 4300 });
+            
+            pracownicy.Add("Informatyka", new Pracownik { Imie = "Jonasz", Nazwisko = "Zwała", Pensja = 3900 })
+                      .Add("Informatyka", new Pracownik { Imie = "Błażej", Nazwisko = "Fopernik", Pensja = 5800 })
+                      .Add("Informatyka", new Pracownik { Imie = "Anna", Nazwisko = "Cała", Pensja = 4100 })
+                      .Add("Informatyka", new Pracownik { Imie = "Justyna", Nazwisko = "Cała", Pensja = 4300 });
 
             foreach (var dzial in pracownicy)
             {

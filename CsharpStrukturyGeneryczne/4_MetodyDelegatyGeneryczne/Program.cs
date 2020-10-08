@@ -4,24 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace _4_MetodyDelegatyGeneryczne
 {
     class Program
     {
+        static void WypiszNaKonsoli(double dane)
+        {
+            Console.WriteLine(dane);
+        }
         static void Main(string[] args)
         {
             var kolejka = new KolejkaKolowa<double>(pojemnosc: 3);
 
             WprowadzanieDanych(kolejka);
 
-            var inty = kolejka.WyswietlJako<double, int>();
+            //var inty = kolejka.WyswietlJako<double, int>();
 
-            foreach (var item in inty)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in inty)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            kolejka.Drukuj();
+            var delegatDruku = new Drukarka<double>(WypiszNaKonsoli);
+
+            kolejka.Drukuj(delegatDruku);
 
             Console.WriteLine("____________________");
 

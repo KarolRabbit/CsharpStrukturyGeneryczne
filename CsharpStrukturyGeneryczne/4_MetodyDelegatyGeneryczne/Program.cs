@@ -10,47 +10,12 @@ namespace _4_MetodyDelegatyGeneryczne
 {
     class Program
     {
-        static void WypiszNaKonsoli(double dane)
-        {
-            Console.WriteLine(dane);
-        }
         static void Main(string[] args)
         {
             var kolejka = new KolejkaKolowa<double>(pojemnosc: 3);
-
-            Action<double> drukuj = delegate (double dane)
-            {
-                Console.WriteLine(dane);
-            };
-
-            Action<bool> drukujBool = d => Console.WriteLine(d);
-
-            double l1 = 9;
-            double l2 = 3;
-            Func<double, double> potegowanie = p => p * p;
-            Func<double, double, double> dodawanie = (x, y) => x + y;
-            Func<double, double, double> odejmowanie = (x, y) => x - y;
-            Func<double, double, double> dzielenie = (x, y) => x / y;
-
-            Predicate<double> JestWiekszenizSto = d => d > 100; 
-
-            drukuj(potegowanie(l1));
-            drukuj(dodawanie(l1, l2));
-            drukuj(odejmowanie(l1, l2));
-            drukuj(dzielenie(l1, l2));
-
-            drukujBool(JestWiekszenizSto(potegowanie(l1)));
+            kolejka.elementUsuniety += Kolejka_elementUsuniety;
 
             WprowadzanieDanych(kolejka);
-
-            //var inty = kolejka.WyswietlJako<double, int>();
-
-            //foreach (var item in inty)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-           // var delegatDruku = new Drukarka<double>(WypiszNaKonsoli);
 
             kolejka.Drukuj(d => Console.WriteLine(d));
 
@@ -58,7 +23,11 @@ namespace _4_MetodyDelegatyGeneryczne
 
             PrzetwarzanieDanych(kolejka);
             Console.ReadLine();
+        }
 
+        private static void Kolejka_elementUsuniety(object sender, ElementUsunietyEventsArgs<double> e)
+        {
+            Console.WriteLine("Element usunięty: {0}, nowy element w kolekcji: {1}", e.ElementUsuniety, e.ElementNowy);
         }
 
         private static void PrzetwarzanieDanych(KolejkaKolowa<double> kolejka)

@@ -11,13 +11,13 @@ namespace _4_MetodyDelegatyGeneryczne
 
     public static class KolejkaExtensions
     {
-        public static  IEnumerable<Twyj> WyswietlJako<T, Twyj>(this IKolejka<T> kolejka)
+        public static  IEnumerable<Twyj> Mapuj<T, Twyj>(this IKolejka<T> kolejka, Converter<T, Twyj> konwerter)
         {
-            var konwerter = TypeDescriptor.GetConverter(typeof(T));
+            
             foreach (var item in kolejka)
             {
-                var wynik = konwerter.ConvertTo(item, typeof(Twyj));
-                yield return (Twyj)wynik;
+                var wynik = konwerter(item);
+                yield return wynik;
             }
         }
 

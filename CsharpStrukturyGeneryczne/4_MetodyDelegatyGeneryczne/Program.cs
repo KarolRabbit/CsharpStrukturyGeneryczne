@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,29 @@ namespace _4_MetodyDelegatyGeneryczne
         {
             var kolejka = new KolejkaKolowa<double>(pojemnosc: 3);
 
+            Action<double> drukuj = delegate (double dane)
+            {
+                Console.WriteLine(dane);
+            };
+
+            Action<bool> drukujBool = d => Console.WriteLine(d);
+
+            double l1 = 9;
+            double l2 = 3;
+            Func<double, double> potegowanie = p => p * p;
+            Func<double, double, double> dodawanie = (x, y) => x + y;
+            Func<double, double, double> odejmowanie = (x, y) => x - y;
+            Func<double, double, double> dzielenie = (x, y) => x / y;
+
+            Predicate<double> JestWiekszenizSto = d => d > 100; 
+
+            drukuj(potegowanie(l1));
+            drukuj(dodawanie(l1, l2));
+            drukuj(odejmowanie(l1, l2));
+            drukuj(dzielenie(l1, l2));
+
+            drukujBool(JestWiekszenizSto(potegowanie(l1)));
+
             WprowadzanieDanych(kolejka);
 
             //var inty = kolejka.WyswietlJako<double, int>();
@@ -26,9 +50,9 @@ namespace _4_MetodyDelegatyGeneryczne
             //    Console.WriteLine(item);
             //}
 
-            var delegatDruku = new Drukarka<double>(WypiszNaKonsoli);
+           // var delegatDruku = new Drukarka<double>(WypiszNaKonsoli);
 
-            kolejka.Drukuj(delegatDruku);
+            kolejka.Drukuj(d => Console.WriteLine(d));
 
             Console.WriteLine("____________________");
 
